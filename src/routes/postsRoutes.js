@@ -15,7 +15,7 @@ const app = express();
 // Permitir CORS para todos os domínios (recomenda-se restringir a URLs específicas para maior segurança)
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://insta-grama.netlify.app'); // URL do seu site no Netlify
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');  // Métodos permitidos
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');  // Métodos permitidos
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Cabeçalhos permitidos
   next();
 });
@@ -24,6 +24,8 @@ const corsOptions ={
   origin: "https://insta-grama.netlify.app",
   optionsSuccessStatus: 200
 }
+
+app.options('*', cors(corsOptions));
 
 // Configura o armazenamento para uploads com Multer
 const storage = multer.diskStorage({
