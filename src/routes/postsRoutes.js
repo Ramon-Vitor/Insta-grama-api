@@ -10,7 +10,7 @@ import { atualizarNovoPost, listarPosts, postarNovoPost, uploadImagem } from "..
 import cors from "cors";
 
 const corsOptions ={
-  origin: "http://localhost:8000",
+  origin: "https://insta-grama.netlify.app",
   optionsSuccessStatus: 200
 }
 
