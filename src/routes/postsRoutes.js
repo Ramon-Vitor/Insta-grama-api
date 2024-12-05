@@ -9,6 +9,17 @@ import { atualizarNovoPost, listarPosts, postarNovoPost, uploadImagem } from "..
 
 import cors from "cors";
 
+const express = require('express');
+const app = express();
+
+// Permitir CORS para todos os domínios (recomenda-se restringir a URLs específicas para maior segurança)
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://insta-grama.netlify.app'); // URL do seu site no Netlify
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');  // Métodos permitidos
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Cabeçalhos permitidos
+  next();
+});
+
 const corsOptions ={
   origin: "https://insta-grama.netlify.app",
   optionsSuccessStatus: 200
